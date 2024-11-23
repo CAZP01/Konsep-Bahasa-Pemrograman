@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Karakter HSR</title>
+    <link rel="stylesheet" href="tugas.css">
+</head>
+<body>
+    <img src="hsr.jpg" class="hsr"><br><br>
+    <form action="" method="post" class="playable">
+        <label for="karakter">Karakter:</label>
+        <input type="text" name="karakter" id="karakter">
+        <label for="path">Path:</label>
+        <input type="text" name="path" id="path">
+        <label for="elemen">Elemen:</label>
+        <input type="text" name="elemen" id="elemen"><br><br>
+        <button type="button" onclick="status()">Cek</button>
+    </form>
+    <table id="tabel">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Path</th>
+                <th>Elemen</th>
+            </tr>
+        </thead>
+        <tbody id="tabel-body">
+
+        </tbody>
+    </table>
+    <script>
+        function status(){
+            var karakter = document.getElementById("karakter").value;
+            var path = document.getElementById("path").value;
+            var elemen = document.getElementById("elemen").value;
+
+            if(karakter.trim()!=="") {
+                var tb = document.getElementById("tabel-body");
+                var row = document.createElement("tr");
+
+                var num = document.createElement("td");
+                num.textContent = tb.rows.length + 1;
+                row.appendChild(num);
+
+                var karakterList = document.createElement("td");
+                karakterList.textContent = karakter;
+                row.appendChild(karakterList);
+
+                var pathList = document.createElement("td");
+                pathList.textContent = path;
+                row.appendChild(pathList);
+
+                var elemenList = document.createElement("td");
+                elemenList.textContent = elemen;
+                row.appendChild(elemenList);
+
+                tb.appendChild(row);
+                document.getElementById("karakter").value = "";
+                document.getElementById("path").value = "";
+                document.getElementById("elemen").value = "";
+            } else {
+                alert("Karakter kosong");
+            }
+        }
+    </script>
+</body>
+</html>
